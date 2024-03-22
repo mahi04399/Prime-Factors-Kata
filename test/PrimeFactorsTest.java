@@ -1,6 +1,6 @@
 package test;
 
-import com.kata.PrimeFactors;
+import Primefactor.PrimeFactor;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,42 +8,48 @@ import java.util.List;
 
 public class PrimeFactorsTest {
     @Test
-    public void primeFactorsOf1Is() {
-        Assert.assertEquals(List.of(), PrimeFactors.find(1));
+    public void primeFactorsOf1Is(){
+        Assert.assertEquals(List.of(), PrimeFactor.getFactorsOf(1));
     }
 
     @Test
-    public void primeFactorOf2IS2() {
-        Assert.assertEquals(List.of(2), PrimeFactors.find(2));
+    public void primeFactorsOf2Is2() {
+        Assert.assertEquals(List.of(2), PrimeFactor.getFactorsOf(2));
     }
 
     @Test
     public void primeFactorsOf3Is3() {
-        Assert.assertEquals(List.of(3), PrimeFactors.find(3));
+        Assert.assertEquals(List.of(3), PrimeFactor.getFactorsOf(3));
     }
 
     @Test
-    public void primeFactorsOf2x2() {
-        Assert.assertEquals(List.of(2,2), PrimeFactors.find(4));
+    public void primeFactorsOf4IS4x4() {
+        Assert.assertEquals(List.of(2,2), PrimeFactor.getFactorsOf(4));
     }
 
     @Test
-    public void primeFactorsOf3x3() {
-        Assert.assertEquals(List.of(3,3), PrimeFactors.find(9));
+    public void primeFactorsOf6Is2x3() {
+        Assert.assertEquals(List.of(2,3), PrimeFactor.getFactorsOf(6));
     }
 
     @Test
-    public void primeFactorsOf2x3() {
-        Assert.assertEquals(List.of(2,3),PrimeFactors.find(6));
+    public void primeFactorsOf9Is3x3() {
+
+        Assert.assertEquals(List.of(3,3), PrimeFactor.getFactorsOf(9));
     }
 
     @Test
-    public void primeFactorsOf2x3x5() {
-        Assert.assertEquals(List.of(2,3,5), PrimeFactors.find(2*3*5));
+    public void primeFactorsOf25Is5x5() {
+        Assert.assertEquals(List.of(5,5), PrimeFactor.getFactorsOf(25));
     }
 
     @Test
-    public void primeFactorsOf2x2x3x5x5x71() {
-        Assert.assertEquals(List.of(2,2,3,5,5,71), PrimeFactors.find(2*2*3*5*5*71));
+    public void primeFactorsOf30Is2x3x5() {
+        Assert.assertEquals(List.of(2,3,5), PrimeFactor.getFactorsOf(30));
+    }
+
+    @Test
+    public void primeFactorsOf2x3x5x7x3x2x5x7x71IsSame() {
+        Assert.assertEquals(List.of(2,2,3,3,5,5,7,7,71), PrimeFactor.getFactorsOf(2*3*5*7*3*2*5*7*71));
     }
 }
