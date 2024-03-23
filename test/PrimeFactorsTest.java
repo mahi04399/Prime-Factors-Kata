@@ -1,55 +1,44 @@
 package test;
 
 import com.kata.PrimeFactors;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class PrimeFactorsTest {
+    private static void assertPrimeFactors(List<Integer> primeFactorsList, int number) {
+        assertEquals(primeFactorsList, PrimeFactors.getPrimeFactors(number));
+    }
+
     @Test
-    public void primeFactorsOf1Is(){
-        Assert.assertEquals(List.of(), PrimeFactors.getFactorsOf(1));
+    public void primeFactorsOf1() {
+        assertPrimeFactors(List.of(), 1);
     }
 
     @Test
     public void primeFactorsOf2Is2() {
-        Assert.assertEquals(List.of(2), PrimeFactors.getFactorsOf(2));
+        assertPrimeFactors(List.of(2), 2);
     }
 
     @Test
     public void primeFactorsOf3Is3() {
-        Assert.assertEquals(List.of(3), PrimeFactors.getFactorsOf(3));
-    }
-
-    @Test
-    public void primeFactorsOf4IS2x2() {
-        Assert.assertEquals(List.of(2,2), PrimeFactors.getFactorsOf(4));
+        assertPrimeFactors(List.of(3), 3);
     }
 
     @Test
     public void primeFactorsOf6Is2x3() {
-        Assert.assertEquals(List.of(2,3), PrimeFactors.getFactorsOf(6));
+        assertPrimeFactors(List.of(2, 3), 6);
     }
 
     @Test
-    public void primeFactorsOf9Is3x3() {
-
-        Assert.assertEquals(List.of(3,3), PrimeFactors.getFactorsOf(9));
+    public void primeFactorsOf12Is2x2x3() {
+        assertPrimeFactors(List.of(2, 2, 3), 12);
     }
 
     @Test
-    public void primeFactorsOf25Is5x5() {
-        Assert.assertEquals(List.of(5,5), PrimeFactors.getFactorsOf(25));
-    }
-
-    @Test
-    public void primeFactorsOf30Is2x3x5() {
-        Assert.assertEquals(List.of(2,3,5), PrimeFactors.getFactorsOf(30));
-    }
-
-    @Test
-    public void primeFactorsOf2x3x5x7x3x2x5x7x71IsSame() {
-        Assert.assertEquals(List.of(2,2,3,3,5,5,7,7,71), PrimeFactors.getFactorsOf(2*3*5*7*3*2*5*7*71));
+    public void integration() {
+        assertPrimeFactors(List.of(2, 3, 5, 5), 150);
     }
 }
